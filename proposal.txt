@@ -1,0 +1,15 @@
+CIS 308 Project Proposal
+Section A, Fall 2018
+Braedon Smith, Brandon Taylor
+
+    Proposal
+
+A scientific calculator similar to the rudimentary calculators that come preinstalled on most operating systems, but with more features and symbolic parsing of arbitrary strings.  This is designed to supplant those programs as a easy-to-use, lightweight calculator for scientific applications and radix conversions.
+
+    Execution
+
+Arbitrary strings will be parsed using abstract syntax trees and evaluated from the innermost operations using a recursive traversal algorithm.  Allowed operation types will be stored as an enum.
+
+The main functionalities of the calculator itself will be done using a GUI like many preinstalled ones, with buttons and a text window that allows keyboard input as well as input from the buttons.  Certain functions can be accessed only from the text window, such as radix conversions, because there is no text-based mathematical notation for them.  Other functions will have a defined specification for parsing and the parser will handle any errors in the string.
+
+The calculator can also be passed a text file, where each line will be parsed as a separate operation, and a new file will be created with the evaluations on each corresponding line.
