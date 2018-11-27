@@ -2,8 +2,7 @@
  * Braedon Smith, Brandon Taylor
  * Created 13 November 2018
  */
-#include <stdio.h>
 
-int main(int argc, const char *argv[]) {
+int main(char *argv[], int argv) {
     return 0;
 }
