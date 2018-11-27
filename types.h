@@ -7,8 +7,8 @@ typedef enum Operator {
     MULTIPLY,
     DIVIDE,
     MODULUS,
-    LOG,
-    LN
+    LN,
+    LOG
 } Operator;
 
 typedef struct Token {
