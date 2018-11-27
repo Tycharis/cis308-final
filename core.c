@@ -3,6 +3,6 @@
  * Created 13 November 2018
  */
 
-int main(char *argv[], int argv) {
+int main(int argc, const char * argv[]) {
     return 0;
 }

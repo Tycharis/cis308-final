@@ -83,7 +83,7 @@ Token * make_ln_token()
     return t;
 }
 
-Token * make_log_value()
+Token * make_log_token()
 {
     Token * t = malloc(sizeof(Token));
     t->type = LOG;
@@ -91,7 +91,7 @@ Token * make_log_value()
     return t;
 }
 
-Token * tokenize(char * input, int * characters_read)
+Token * tokenize(char * str, int * characters_read)
 {
     if (characters_read == NULL)
     {
@@ -132,12 +132,12 @@ Token * tokenize(char * input, int * characters_read)
         case 'L':
             (*characters_read)++;
 
-            if (strcmp(str[1], 'n') || strcmp(str[1], 'N'))
+            if (str[1] == 'n' || str[1] == 'N')
             {
                 (*characters_read)++;
                 return make_ln_token();
             }
-            else if ((strcmp(str[1], 'o') || strcmp(str[1], 'O')) && (strcmp(str[2], 'g') || strcmp(str[2], 'G')))
+            else if ((str[1] == 'o' || str[1] == 'O') && (str[2] == 'g' || str[2] == 'G'))
             {
                 (*characters_read)++;
                 return make_log_token();
@@ -158,7 +158,7 @@ Token * tokenize(char * input, int * characters_read)
 
         *characters_read += digits;
 
-        return make_integer_token(atoi(str));
+        return make_int_token(atoi(str));
     }
 
     *characters_read = 0;
