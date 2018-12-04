@@ -1,6 +1,16 @@
 #include "types.h"
 
-SyntaxTree parse(Token * tokens[], SyntaxTree * tree)
+SyntaxTree parse(LinkedList * tokens, SyntaxTree * tree)
 {
-    //TODO
+    if (tokens == NULL || tree == NULL)
+    {
+        return NULL;
+    }
+
+    while (tokens != NULL)
+    {
+        //TODO
+
+        tokens = tokens->next;
+    }
 }
