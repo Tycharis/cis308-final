@@ -31,4 +31,16 @@ typedef struct SyntaxTree
     struct SyntaxTree * right;
 } SyntaxTree;
 
+void free_tree(SyntaxTree *);
+
+typedef struct LinkedList
+{
+    Token * value;
+    struct LinkedList * next;
+} LinkedList;
+
+LinkedList * append(LinkedList *, Token *);
+LinkedList * advance(LinkedList *, int);
+void free_list(LinkedList * list);
+
 #endif

@@ -143,7 +143,7 @@ Token * tokenize(char * str, int * characters_read)
                 return make_log_token();
             }
         default:
-            break;
+            return NULL;
     }
 
     if (is_digit(str[0]))
@@ -166,3 +166,21 @@ Token * tokenize(char * str, int * characters_read)
     return NULL;
 }
 
+LinkedList * lex(char * input)
+{
+    LinkedList * head = NULL;
+
+    int read = 0;
+    Token * token = tokenize(input, &read);
+
+    while (token != NULL)
+    {
+        input += read;
+
+        head = append(head, token);
+        read = 0;
+        token = tokenize(input, &read);
+    }
+
+    return head;
+}
