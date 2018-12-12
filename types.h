@@ -9,7 +9,7 @@ typedef enum
 
 typedef struct Token
 {
-    int value;
+    double value;
 
     enum
     {
@@ -20,13 +20,13 @@ typedef struct Token
         MODULUS,
         LN,
         LOG,
-        INTEGER
+        DOUBLE
     } type;
 } Token;
 
 typedef struct SyntaxTree
 {
-    Token value;
+    Token * value;
     struct SyntaxTree * left;
     struct SyntaxTree * right;
 } SyntaxTree;
@@ -35,7 +35,7 @@ void free_tree(SyntaxTree *);
 
 typedef struct LinkedList
 {
-    Token * value;
+    Token * token;
     struct LinkedList * next;
 } LinkedList;
 

@@ -5,7 +5,7 @@
 
 bool is_digit(char c)
 {
-    return (c <= '9' && c >= '0');
+    return ((c <= '9' && c >= '0') || c == '.');
 }
 
 bool is_whitespace(char c)
@@ -58,18 +58,10 @@ Token * make_divide_token()
     return t;
 }
 
-Token * make_mod_token()
+Token * make_num_token(double value)
 {
     Token * t = malloc(sizeof(Token));
-    t->type = MODULUS;
-
-    return t;
-}
-
-Token * make_int_token(int value)
-{
-    Token * t = malloc(sizeof(Token));
-    t->type = INTEGER;
+    t->type = DOUBLE;
     t->value = value;
 
     return t;
@@ -125,9 +117,6 @@ Token * tokenize(char * str, int * characters_read)
         case '/':
             (*characters_read)++;
             return make_divide_token();
-        case '%':
-            (*characters_read)++;
-            return make_mod_token();
         case 'l':
         case 'L':
             (*characters_read)++;
@@ -158,7 +147,7 @@ Token * tokenize(char * str, int * characters_read)
 
         *characters_read += digits;
 
-        return make_int_token(atoi(str));
+        return make_num_token(atof(str));
     }
 
     *characters_read = 0;

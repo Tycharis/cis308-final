@@ -12,8 +12,7 @@ void free_tree(SyntaxTree * tree)
     free_tree(tree->left);
     free_tree(tree->right);
 
-    free(tree->value);
-    free(tree);
+    free(&tree->value);
 }
 
 LinkedList * append(LinkedList * list, Token * token)
